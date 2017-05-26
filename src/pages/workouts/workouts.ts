@@ -1,22 +1,31 @@
 import {Component, OnInit} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {WorkoutService} from "../../services/wourkout.service";
+import {WorkoutDetailPage} from "../workout-details/workout-details";
 
 @Component({
-  selector: 'workout',
-  templateUrl: 'workouts.html'
+    selector: 'workout',
+    templateUrl: 'workouts.html'
 })
-export class WorkoutsPage implements OnInit{
+export class WorkoutsPage implements OnInit {
+    workouts:Array<Object>;
 
-  constructor(public navCtrl: NavController , private _workoutService : WorkoutService) {
-  }
-
+    constructor(public navCtrl:NavController , private navParams : NavParams , private _workoutService:WorkoutService) {
+    }
 
     ngOnInit():void {
-      this._workoutService.getWorkouts().subscribe(
-          workouts =>{
-            console.log(workouts);
-          }
-      );
+        this._workoutService.getWorkouts().subscribe(
+            workouts => {
+                this.workouts = workouts;
+            }
+        );
+    }
+
+    workoutSelected(event, workout) {
+
+        this.navCtrl.push(WorkoutDetailPage,{
+            workout: workout
+        });
+        console.log(workout)
     }
 }
