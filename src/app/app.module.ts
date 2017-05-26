@@ -14,6 +14,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {WorkoutsPage} from "../pages/workouts/workouts";
 import {AddWorkoutPage} from "../pages/add-workout/add-workout";
 import {WorkoutService} from "../services/wourkout.service";
+import {WorkoutDetailPage} from "../pages/workout-details/workout-details";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,7 @@ import {WorkoutService} from "../services/wourkout.service";
         TabsPage,
         WorkoutsPage,
         AddWorkoutPage,
-
+        WorkoutDetailPage,
     ],
     imports: [
         BrowserModule,
@@ -39,7 +40,8 @@ import {WorkoutService} from "../services/wourkout.service";
         HomePage,
         TabsPage,
         WorkoutsPage,
-        AddWorkoutPage
+        AddWorkoutPage,
+        WorkoutDetailPage,
     ],
     providers: [
         StatusBar,
