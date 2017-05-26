@@ -27,4 +27,11 @@ export class WorkoutService {
               res => res.json()  
             );
     }
+
+    deleteWorkout(_id: string){
+        return this.http.delete(this.workoutsUrl+'/'+_id+'?apiKey='+this.apiKey)
+            .map(
+                res => res.json()
+            );
+    }
 }
